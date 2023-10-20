@@ -1,6 +1,7 @@
 
 ////////////////////////////////////////////////////////////////////
 /////////UNNECESSARY DOM MANIPULATION/INJECTION////////////////////
+//////////////////////////////////////////////////////////////////
 let unnecessary = document.querySelector(".unnecessary"); 
 let textNode = document.createElement("p"); 
 
@@ -10,9 +11,10 @@ textNode.textContent =
 
 
 unnecessary.appendChild(textNode);
-//////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////
+//////////////////ASSIGNMENT CODE GOES BELOW////////////////////////
+///////////////////////////////////////////////////////////////////
 
 // The provided course information.
 const CourseInfo = {
@@ -93,11 +95,11 @@ const LearnerSubmissions = [//Array 2
 ];
 
 
-//************SOLUTION 1 ****************
-//console.warn("I have not Idea where to start. SOS")  
-const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions) {
-  //Accessing each name of the assignment group
+//************SOLUTION ****************// 
 
+const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions) {
+  
+  //Accessing each name of the assignmentGroup
   for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
     let assignment = AssignmentGroup.assignments[i];
     console.log(assignment.name);
@@ -107,12 +109,10 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
     let assigned = LearnerSubmissions[h];
     console.log(assigned.learner_id);
   }
-
   //accessing/obtaining group_weight ***(forgive my spelling, it's midnight and my brain is tired)***
   assignmentGroup.group_weight;
   let gw = assignmentGroup.group_weight;
   console.log(gw);
-
   // Finding the average score of all data...
   const scores = [];
   let total = 0;
@@ -121,7 +121,6 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
     scores.push(learnerSubmissions[i].submission.score);
   }
   console.log(total / scores.length);
-
   //learner's assignments dates
   const assignmentsDueDate = [];
 
@@ -129,7 +128,6 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
     const assignment = assignmentGroup.assignments[j];
     const assignmentDueDate = new Date(assignment.due_at);
     const today = new Date();
-
     //throwing an error deliveradamente
     if (today > assignmentDueDate) {
       throw new Error(
