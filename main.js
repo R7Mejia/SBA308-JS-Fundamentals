@@ -93,12 +93,17 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
     let assigned = LearnerSubmissions[h];
     console.log(assigned.learner_id);
   }
+
   //accessing/obtaining group_weight ***(forgive my spelling, it's midnight and my brain is tired)***
   // for (let peso of assignmentGroup.length) {
   //   console.log(peso.group_weight);
   // }
+  // for (let m = 0; m < assignmentGroup.assignments.length; m++){
+  //   let peso = assignmentGroup[m];
+  //   console.log(peso.group_weight)
+  // }
   // Finding the average score of all data...
-  const scores = [];
+  const scores = []; 
   let total = 0;
   for (let i = 0; i < learnerSubmissions.length; i++) {
     total += learnerSubmissions[i].submission.score;
