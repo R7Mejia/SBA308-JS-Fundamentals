@@ -1,4 +1,19 @@
 
+////////////////////////////////////////////////////////////////////
+/////////UNNECESSARY DOM MANIPULATION/INJECTION////////////////////
+let unnecessary = document.querySelector(".unnecessary"); 
+let textNode = document.createElement("p"); 
+
+textNode.style.color = "blue";
+textNode.textContent =
+  ("It is ok to struggle now, one day the struggle is going to be bearable. DON'T GIVE UP!");
+
+
+unnecessary.appendChild(textNode);
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+
 // The provided course information.
 const CourseInfo = {
   id: 451,
@@ -81,7 +96,6 @@ const LearnerSubmissions = [//Array 2
 //************SOLUTION 1 ****************
 //console.warn("I have not Idea where to start. SOS")  
 const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions) {
-  
   //Accessing each name of the assignment group
 
   for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
@@ -95,22 +109,18 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
   }
 
   //accessing/obtaining group_weight ***(forgive my spelling, it's midnight and my brain is tired)***
-  // for (let peso of assignmentGroup.length) {
-  //   console.log(peso.group_weight);
-  // }
-  // for (let m = 0; m < assignmentGroup.assignments.length; m++){
-  //   let peso = assignmentGroup[m];
-  //   console.log(peso.group_weight)
-  // }
+  assignmentGroup.group_weight;
+  let gw = assignmentGroup.group_weight;
+  console.log(gw);
+
   // Finding the average score of all data...
-  const scores = []; 
+  const scores = [];
   let total = 0;
   for (let i = 0; i < learnerSubmissions.length; i++) {
     total += learnerSubmissions[i].submission.score;
     scores.push(learnerSubmissions[i].submission.score);
   }
   console.log(total / scores.length);
-  //
 
   //learner's assignments dates
   const assignmentsDueDate = [];
@@ -125,13 +135,12 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
       throw new Error(
         "Ups, hurry my friend, train is about to depart, and Perscola's Instructors CANNOT wait that long!😔🤫🤫🤫 (jk!, btw)"
       );
-    } else if(today ===assignmentDueDate) {
+    } else if (today === assignmentDueDate) {
       console.log("You're just fine!");
     } else {
-      console.log("ciao")
-       }
+      console.log("ciao");
+    }
   }
-
 }
 
 getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);

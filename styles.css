@@ -1,0 +1,11 @@
+
+div, img{
+    background-color: rgb(165, 165, 165);
+    text-align: center;
+    margin-left: 100px;
+    width: 40vmax;
+    height: 35vmax;
+    border-radius: 10px;
+    box-shadow: 5px 3px 10px rgb(80, 80, 37);
+    align-items: center;
+}
