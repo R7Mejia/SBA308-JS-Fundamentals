@@ -3,9 +3,12 @@ div, img{
     background-color: rgb(165, 165, 165);
     text-align: center;
     margin-left: 100px;
-    width: 40vmax;
-    height: 35vmax;
+    width: 30vmax;
+    height: 30vmax;
     border-radius: 10px;
-    box-shadow: 5px 3px 10px rgb(80, 80, 37);
+    box-shadow: 5px 15px 15px rgb(80, 80, 37);
     align-items: center;
+}
+h1 {
+    color: rgb(239, 239, 9);
 }

@@ -131,12 +131,12 @@ const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions
     //throwing an error deliveradamente
     if (today > assignmentDueDate) {
       throw new Error(
-        "Ups, hurry my friend, train is about to depart, and Perscola's Instructors CANNOT wait that long!😔🤫🤫🤫 (jk!, btw)"
+        "Ups, hurry my friend, train is about to depart, and PerSchola's Instructors CANNOT wait that long!😔🤫🤫🤫 (jk!, btw)"
       );
     } else if (today === assignmentDueDate) {
       console.log("You're just fine!");
     } else {
-      console.log("ciao");
+      console.log("ciao!");
     }
   }
 }
