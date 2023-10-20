@@ -1,6 +1,3 @@
-// You will create a script that gathers data, processes it, and then outputs a consistent result as described by a specification. This is a very typical situation in industry, and this particular scenario has been modified from a real application. The data you will use will be provided to you below.
-// You will be provided with four different types of data:
-//A CourseInfo object, which looks like this:
 
 // The provided course information.
 const CourseInfo = {
@@ -14,7 +11,7 @@ const AssignmentGroup = {
   name: "Fundamentals of JavaScript",
   course_id: 451,
   group_weight: 25,
-  assignments: [
+  assignments: [//Array 1
     {
       id: 1,
       name: "Declare a Variable",
@@ -37,7 +34,7 @@ const AssignmentGroup = {
 };
 
 // The provided learner submission data.
-const LearnerSubmissions = [
+const LearnerSubmissions = [//Array 2
   {
     learner_id: 125,
     assignment_id: 1,
@@ -79,111 +76,60 @@ const LearnerSubmissions = [
     }
   }
 ];
-/* *******THIS IS NOT SUPPOSSED TO BE USED. THIS IS JUST FOR REFERENCE AND UNDERSTANDING*****
-
-function getLearnerData(course, ag, submissions) {
-  // here, we would process this data to achieve the desired result.
-  const result = [
-    {
-      id: 125,
-      avg: 0.985, // (47 + 150) / (50 + 150)
-      1: 0.94, // 47 / 50
-      2: 1.0 // 150 / 150
-    },
-    {
-      id: 132,
-      avg: 0.82, // (39 + 125) / (50 + 150)
-      1: 0.78, // 39 / 50
-      2: 0.833 // late: (140 - 15) / 150
-    }
-  ];
-
-  return result;
-}
-
-const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-
-console.log(result);*/
 
 
 //************SOLUTION 1 ****************
 //console.warn("I have not Idea where to start. SOS")  
-    //"id": number,
-
 const getLearnerData = function (courseInfo, assignmentGroup, learnerSubmissions) {
   
-    // Finding the average score of all data...
-    const scores = [];
-    let total = 0;
-    for (let i = 0; i < learnerSubmissions.length; i++) {
-        total += learnerSubmissions[i].submission.score;
-        scores.push(learnerSubmissions[i].submission.score);
-    }
-    console.log(total / scores.length);
+  //Accessing each name of the assignment group
 
-    //learner's assignments dates
-    const assignmentsDueDate = [];
+  for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
+    let assignment = AssignmentGroup.assignments[i];
+    console.log(assignment.name);
+  }
+  //accessing each ID
+  for (let h = 0; h < LearnerSubmissions.length; h++) {
+    let assigned = LearnerSubmissions[h];
+    console.log(assigned.learner_id);
+  }
+  //accessing/obtaining group_weight ***(forgive my spelling, it's midnight and my brain is tired)***
+  // for (let peso of assignmentGroup.length) {
+  //   console.log(peso.group_weight);
+  // }
+  // Finding the average score of all data...
+  const scores = [];
+  let total = 0;
+  for (let i = 0; i < learnerSubmissions.length; i++) {
+    total += learnerSubmissions[i].submission.score;
+    scores.push(learnerSubmissions[i].submission.score);
+  }
+  console.log(total / scores.length);
+  //
 
-    for (let i = 0; i < assignmentGroup.assignments.length; i++) {
-        const assignment = assignmentGroup.assignments[i];
-        const assignmentDueDate = new Date(assignment.due_at);
-        const today = new Date();
-//throwing an error deliveradamente
-        if (today > assignmentDueDate) {
-            throw new Error(
-              "Ups, hurry my friend, train is about to depart, and Perscola's Instructors CANNOT wait!😔🤫🤫🤫"
-            );
-        } else {
-            console.log("You're just fine!");
-        }
-    }
+  //learner's assignments dates
+  const assignmentsDueDate = [];
+
+  for (let j = 0; j < assignmentGroup.assignments.length; j++) {
+    const assignment = assignmentGroup.assignments[j];
+    const assignmentDueDate = new Date(assignment.due_at);
+    const today = new Date();
+
+    //throwing an error deliveradamente
+    if (today > assignmentDueDate) {
+      throw new Error(
+        "Ups, hurry my friend, train is about to depart, and Perscola's Instructors CANNOT wait that long!😔🤫🤫🤫 (jk!, btw)"
+      );
+    } else if(today ===assignmentDueDate) {
+      console.log("You're just fine!");
+    } else {
+      console.log("ciao")
+       }
+  }
+
 }
+
 getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     learnerSubmissions.forEach(learnerSubmission){
-
-
-//     }
-// }
-//array of objects. each of these objets will have properties...these properties will come from the data above
-//
-//const =[//random data should go here. maybe an object/objects. ]
-//maybe a loop will be here. I'll also need to check for the requirement instructions. Then,
-//maybe another function? idk
-    // 
-        
-    
-        // the learner’s total, weighted average, in which assignments
-        // with more points_possible should be counted for more
-        // e.g. a learner with 50/100 on one assignment and 190/200 on another
-        // would have a weighted average score of 240/300 = 80%.
-        //   "avg": number,
-        // each assignment should have a key with its ID,
-        // and the value associated with it should be the percentage that
-    // the learner scored on the assignment (submission.score / points_possible)
-    //   <assignment_id>: number,
-    // if an assignment is not yet due, it should not be included in either
-    // the average or the keyed dictionary of scores
-
-
-
-
-
-
-//******************SOLUTION 2 ********************
 
